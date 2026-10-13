@@ -1,0 +1,16 @@
+# Dependencias y compilados
+node_modules/
+dist/
+coverage/
+
+# Entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

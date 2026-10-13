@@ -48,3 +48,18 @@ No hay prórroga: suban avances parciales con commits pequeños durante la prueb
 | [`test-manager-library-3145556-page`](https://github.com/code-sena/test-manager-library-3145556-page) | Sitio público estático de presentación |
 | [`test-manager-library-3145556-infra`](https://github.com/code-sena/test-manager-library-3145556-infra) | Contenedores, red, volúmenes y motor de base de datos vacío |
 | [`test-manager-library-3145556-tool`](https://github.com/code-sena/test-manager-library-3145556-tool) | Utilidades: sembrador de datos de demostración |
+
+## Estado
+
+| Tarea | Estado |
+|---|---|
+| T-22 · Login, catálogo, socios, prestar, devolver, vencidos y reporte | Pendiente |
+
+Base acordada para construirlo (ver `spec-review.md` en el repositorio `docs`):
+
+- React con Vite. La URL de la API se toma de `VITE_API_URL` (ver `.env.example`).
+- Un solo cliente HTTP que agrega `Authorization: Bearer <token>` y muestra el `message` del cuerpo de error del contrato.
+- Las pantallas se muestran según el rol que devuelve `POST /auth/login` (`admin` o `librarian`).
+- La portada se descarga con `fetch` y se muestra desde un `blob`, porque `GET /books/{id}/cover` exige token.
+- La subida de portada se envía como `POST` con el campo `_method=PUT`, porque PHP no procesa `multipart/form-data` en `PUT`.
+- El contrato usa `snake_case`; la conversión se hace solo en el cliente HTTP.
